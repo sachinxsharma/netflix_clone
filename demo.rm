@@ -1,0 +1,198 @@
+1. what is angular js and its benefit?
+Ans: angularJS is a structural javascript framework that help to build dynamic SPAs using
+features like two-way data binding, MVC architecture, and dependency injection.
+it was developed by google and helps developers write cleaner , organized frontend code.
+main benefits
+1. two-way data binding:
+when data changes in the UI- it update the model.
+when model changes - Ui updates automatically.
+less manual DOM work.
+2. MVC structure
+separates:
+model - data
+view - UI
+controller - logic
+⟶ code becomes clean and easy to manage.
+3. dependency injection
+automatically provides required services/components.
+easier testing & modular code.
+4. directives
+you can create custom HTML tags and behaviors.
+reusable ui components
+5. templates
+HTML + dynamic data = fast page updates
+6. routing
+used to switch view wihtout reloading the page.
+7. testing friendly
+designed to support unit testing and end-to-end testing.
+2. Mvc architecture in angularJS
+Ans:
+MVC = model + view + controller
+it is a way to organize code so it becomes clean and easy to manage.
+1) Model
+contains data of the application
+example:
+username
+product list
+price
+it is the business information
+2) view
+what the user sees , it talk about UI of the application
+HTML page
+example:
+buttons
+form
+tables
+3) Controller
+-connect model and view
+-handles logic and user actions
+example:
+get data
+update data
+respond to click events
+how they work together
+controller sends data – view
+user changes something in view
+model updates
+updated data shows automatically in view
+example:
+Model ⟶ name = “sachin”
+view ⟶ show sachin
+if value becomes “rahul” ⟶ screen updates automatically
+3. ng-app, ng-click ng-init, ng-hide and show, ng-model, ng-repeat, binding expalin with code
+and detail
+ans:
+a) ng-app
+starts the angularJS application
+it tells where angular should work
+<html ng-app>
+without this ⟶ angular will not run
+b) ng-init
+used to initialize(start) data
+<div ng-init=”name=’Sachin’”>
+{{name}}
+</div>
+output ⟶ sachin
+c) data binding {{ }}
+shows data from model to UI.
+<div ng-init=”city=’mUMBAI’ ”>
+{{ city }}
+</div>
+if value change ⟶ Ui update automatically
+d) ng-model
+connect input box with data
+<input type="text" ng-model="username">
+<p>Hello {{username}}</p>
+e) ng-click
+runs function when button is clicked
+<button ng-click="count = count + 1">Click</button>
+<p>{{count}}</p>
+f) ng-show & ng-hide
+show or hide elements based on condition
+ng-show example
+<button ng-click="visible=true">Show</button>
+<p ng-show="visible">Hello</p>\
+ng-hide example
+<button ng-click="hidden=true">Hide</button>
+<p ng-hide="hidden">Bye</p>
+g) ng-repeat
+used for looping (array, lists)
+<div ng-init="fruits=['Apple', 'Mango'
+, 'Banana']">
+<ul>
+<li ng-repeat="f in fruits">{{f}}</li>
+</ul>
+</div>
+ouput:
+apple
+mango
+banana
+4. angular js filter & their types
+Ans:
+Filters are used to format or modify data before showing it in the UI.
+- the data is same , just display style changes
+syntax:
+{{ data | filterName }}
+common filter types are:
+1) upper case
+convert text ⟶ capital
+ouput ⟶ sachin
+2) lowercase
+convert text ⟶ small letters
+{{ "SACHIN" | lowercase }}
+output---> sachin
+3) currency
+format number as money
+{{ 500 | currency }}
+4) date
+formal date
+{{ today | date:'dd/MM/yyyy' }}
+5) number
+control decimal places
+example:
+{{ 1234.567 | number:2 }}
+output ⟶ 1234.57
+6) limit to
+limits characters or items
+{{ "AngularJS" | limitTo:7 }}
+output ⟶ angular
+7) filter
+search / find in list.
+<input ng-model="search">
+<li ng-repeat="p in products | filter:search">
+{{p}}
+</li>
+Multiple filter together
+{{ "sachin" | uppercase | limitTo:4 }}
+output ⟶ SACH
+5. routing in angularJS for single page applications(SPAs)
+ans: routing in AngularJS is a mechanism that allows navigation between different views of an
+application without reloading the entire page. Since an SPA loads only one main HTML file,
+routing dynamically changes the content based on the URL.
+module used:: angularJS provides routing using the ngRoute module
+how routing work
+when the URL changes, angularJS:
+1. Matches it with a defined route.
+2. loads the required template.
+3. attaches the specified controller.
+4. display the view inside the <ng-show> directive .
+advantages:
+no full page reload
+faster navigation
+better user experience
+easy management of multiple views
+6. validation in angular js : normal validation and custom validation
+ans: Validation in AngularJS is used to ensure that the user enters correct and complete data
+in forms.
+validation rules.
+AngularJS provides built-in (normal) validation and also allows us to create custom
+a) normal validation
+angularJS automatically checks form field using directives.
+common validation directives
+required - field cannot be empty
+ng-minlength - minimum characters
+ng-maxlenght - maximum characters
+type=”email” - valid email format
+type = “number” - only numbers
+b) custom validation
+when built-in rules are not enough, we create our own validation logic using directives
+example situation
+password length
+confirm password
+age limit
+special format
+7. sorting data and search filter in angularJS
+ans: In AngularJS, sorting and filtering are mainly done using filters inside ng-repeat.
+They help display data in a user-friendly way without changing the original data.
+a) sorting data (orderBy filter)
+angularJS provide the orderBy filter to arrange items in ascending or descending order
+syntax:
+ng-repeat=”Item in items | orderBy: ‘fieldName’”
+b) search filter
+the filter is used to search specific data from a list based on user input.
+syntax
+ng-repeat=”item in items | filter:searchText”
+combine sorting + searching
+<li ng-repeat”emp in employees | filter;searchText | orderBy:’’name”>
+{{ emp.name }}
+</li>
